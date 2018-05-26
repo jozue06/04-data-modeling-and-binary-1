@@ -20,6 +20,7 @@ class CleanBuffer {
     this.colorTable = data.slice(COLOR_TABLE_OFFSET, this.numColors * 4);
   }
   
+  
 }
 
 
