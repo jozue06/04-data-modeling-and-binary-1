@@ -1,0 +1,27 @@
+{
+  "name": "04-data-modeling-and-binary",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose --coverage",
+    "lint": "eslint **/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khuynh92/04-data-modeling-and-binary.git"
+  },
+  "author": "Khoa Huynh and Autumn Curtis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khuynh92/04-data-modeling-and-binary/issues"
+  },
+  "homepage": "https://github.com/khuynh92/04-data-modeling-and-binary#readme",
+  "devDependencies": {
+    "jest": "^23.0.0",
+    "jest-cli": "^23.0.0"
+  },
+  "dependencies": {
+    "eslint": "^4.19.1"
+  }
+}
