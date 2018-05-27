@@ -11,6 +11,7 @@ const BYTES_PER_PIXEL_OFFSET = 28;
 class CleanBuffer {
 
   constructor(data) {
+    this.buffer = data;
     this.type = data.toString('utf-8', 0, 2);
     this.fileSize = data.readInt32LE(FILE_SIZE_OFFSET);
     this.bytesPerPixel = data.readInt16LE(BYTES_PER_PIXEL_OFFSET);
