@@ -21,16 +21,10 @@ changeColors.invert = function(buffer) {
 
   let raster = buffer.raster;
 
-  // for (var i = 0; i < raster.length; i+=3) {
-  //   raster[i] = 0xFF - raster[i];
-  //   raster[i+1] = 0xFF - raster[i+1];
-  //   raster[i+2] = 0xFF - raster[i+2];
-  // }
-
   for (var i = 0; i < raster.length; i+=3) {
-    raster[i] = Math.min(255,raster[i]+50);
-    raster[i+1] = Math.min(255,raster[i+1]+50);
-    raster[i+2] = Math.min(255,raster[i+2]+50);
+    raster[i] = 0xFF - raster[i];
+    raster[i+1] = 0xFF - raster[i+1];
+    raster[i+2] = 0xFF - raster[i+2];
   }
   return(buffer);
 

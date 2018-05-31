@@ -10,8 +10,23 @@ const root = __dirname;
 
 let original = process.argv[2];
 let newFile = process.argv[3];
-let transformation = process.argv[4];
+let transformationLabel = process.argv[4];
+let transformation;
+switch (transformationLabel) {
+case 'invert':
+  transformation = changeColors.invert;
+  break;
 
+case 'darken':
+  transformation = changeColors.darken;
+  break;
+
+case 'lighten':
+  transformation = changeColors.lighten;
+  break;
+
+
+}
 console.log('dir name is dir name', __dirname);
 
 reader(`${root}/assets/${original}`, (err, data) => {
@@ -21,7 +36,7 @@ reader(`${root}/assets/${original}`, (err, data) => {
 
     let cleaned = new CleanBuffer(data);
 
-    var newBuffer = changeColors.invert(cleaned);
+    var newBuffer = transformation(cleaned);
     
     // var newBuffer = transformation(cleaned);
     write(`${root}/assets/${newFile}`, newBuffer.buffer, (err) => {
