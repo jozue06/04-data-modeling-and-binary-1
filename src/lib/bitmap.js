@@ -2,11 +2,10 @@
 
 const FILE_SIZE_OFFSET = 2;
 const WIDTH_OFFSET = 18;
-const HEIGHT_OFFSET = 20;
+const HEIGHT_OFFSET = 22;
 const NUM_COLORS_OFFSET = 46;
 const COLOR_TABLE_OFFSET = 54;
 const BYTES_PER_PIXEL_OFFSET = 28;
-
 
 class CleanBuffer {
 
@@ -19,8 +18,11 @@ class CleanBuffer {
     this.width = data.readInt32LE(WIDTH_OFFSET);
     this.numColors = data.readInt32LE(NUM_COLORS_OFFSET);
     this.colorTable = data.slice(COLOR_TABLE_OFFSET, this.numColors * 4);
+    this.raster = data.slice(COLOR_TABLE_OFFSET + this.colorTable.length);
   }
   
+  
 }
+
 
 module.exports = CleanBuffer;

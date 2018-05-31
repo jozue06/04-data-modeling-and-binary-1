@@ -3,41 +3,39 @@
 
 const reader = require('./src/lib/reader');
 const CleanBuffer = require('./src/lib/bitmap');
-const colorFun = require('./src/lib/colorFun');
+const changeColors = require('./src/lib/colorFun');
 const write = require('./src/lib/write');
 
 const root = __dirname;
 
+let original = process.argv[2];
+let newFile = process.argv[3];
+let transformation = process.argv[4];
+
 console.log('dir name is dir name', __dirname);
 
-var testyTest;
+reader(`${root}/assets/${original}`, (err, data) => {
+  if (err) {
+    throw err;
+  } else {
 
-reader(`${root}/assets/bitmap.bmp`, (err, data) => {
-    if (err) {
-    throw err
-    } else {
-        
-        testyTest = new CleanBuffer(data);
+    let cleaned = new CleanBuffer(data);
 
-        var birdBrain = colorFun(testyTest);
-
-    write(`${root}/assets/new.bmp`, birdBrain.buffer, (err) => {
-        if (err) throw err; 
-            else {
-                console.log ('wrtie finished');
-            }
-        
-
-
-      });
-
-        
-    }
-    console.log('first one', testyTest);
-
-
-    });
-    console.log('second one', testyTest);
-
+    var newBuffer = changeColors.invert(cleaned);
     
+    // var newBuffer = transformation(cleaned);
+    write(`${root}/assets/${newFile}`, newBuffer.buffer, (err) => {
+      if (err) throw err;
+      else {
+        console.log('write finished');
+      }
+    });
+
+
+  }
+
+});
+
+
+
 
