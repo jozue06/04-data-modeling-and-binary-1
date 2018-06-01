@@ -2,20 +2,6 @@
 
 const changeColors = {};
 
-changeColors.colorFun = function(buffer) {
-
-  let colorTable = buffer.colorTable;   
-
-  for (var i = 0; i < colorTable.length; i++) {
-    // colorTable[i] = 0x0;
-    // colorTable[i] = colorTable[i]*2;
-
-  }
-
-  return (buffer);
-
-
-};
 
 changeColors.invert = function(buffer) {
 

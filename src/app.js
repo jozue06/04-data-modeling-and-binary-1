@@ -25,6 +25,8 @@ function app(oldPath, newPath, transformationString) {
   case 'lighten':
     transformation = changeColors.lighten;
     break;
+  default:
+    console.log('please choose from invert, darken, lighten, or _____');
 
   }
   reader(`${root}/../assets/${oldPath}`, (err, data) => {
@@ -39,7 +41,7 @@ function app(oldPath, newPath, transformationString) {
       write(`${root}/../assets/${newPath}`, newBuffer.buffer, (err) => {
         if (err) throw err;
         else {
-          console.log('write finished');
+          console.log(transformationString +  ' finished to ' + newPath);
         }
       });
 
@@ -48,5 +50,5 @@ function app(oldPath, newPath, transformationString) {
   });
 }
 
- module.exports = app;
+module.exports = app;
 

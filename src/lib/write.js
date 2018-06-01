@@ -5,17 +5,11 @@ function write(image, buffer, callback) {
   fs.writeFile(image, buffer, (err) => {
     if (err) { 
       callback(err); 
-
-      
-    // }  else { 
-    //   callback(null, data); 
+    } else {
+      callback(undefined);
     }
-    console.log('The file has been saved');
   });
 
-
-
-  //create that buffer into a constructor (13)
 }
 
 module.exports = write;
