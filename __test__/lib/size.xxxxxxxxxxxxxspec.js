@@ -2,7 +2,7 @@
 
 const reader = require('../../src/lib/reader');
 const CleanBuffer = require('../../src/lib/bitmap');
-const size = require('../../src/lib/size');
+// const size = require('../../src/lib/size');
 const root = __dirname + '/../..';
 
 

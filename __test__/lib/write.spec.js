@@ -1,26 +1,37 @@
 const reader = require('../../src/lib/reader');
-const CleanBuffer = require('../../src/lib/bitmap');
-const colorFun = require('../../src/lib/colorFun');
-
+const fs = require('fs');
+const write = require('../../src/lib/write');
 const root = __dirname + '/../..';
 
 describe('Write module', () => {
 
-  // it('should change all the color values to 0, the view will be black', (done) => {
+  it('should make a new bmp file', (done) => {
 
-  //   reader(`${root}/assets/bitmap.bmp`, (err, data) => {
-
+    reader(`${root}/assets/bitmap.bmp`, (err, data) => {
       
-  //     let cleaned = new CleanBuffer(data);
-  //     console.log(cleaned.height);
-  //     console.log(cleaned.width);
-  //     console.log(cleaned.numColors);
-  //     var black = colorFun(cleaned);
-  //     expect(err).toBeNull();
-  //     expect(black.colorTable[0]).toBe(0);
-  //     done();
+      expect(err).toBeNull;
+      write(`${root}/assets/writeTest.bmp`, data, (err) =>  {
+        expect(err).toBeUndefined;
+        done();
+      });
 
-  //   });
-  // });
+      fs.access(`${root}/assets/writeTest.bmp`, fs.constants.R_OK, (err) => {
+        expect(err).toBeNull;
+      });
+    });
+  });
+
+  it('should throw an error if it cannot write a file to a given path', (done) => {
+
+    reader(`${root}/assets/bitmap.bmp`, (err, data) => {
+      
+      expect(err).toBeNull;
+      write(`${root}/assets/fakedir/failTest.bmp`, data , (err) =>  {
+        expect(err).not.toBeUndefined();
+        done();
+      });
+
+    });
+  });
 
 });

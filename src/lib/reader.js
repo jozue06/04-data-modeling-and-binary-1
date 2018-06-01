@@ -12,9 +12,5 @@ function reader(image, callback) {
       callback(null, data); 
     }
   });
-
-  
-
-  //create that buffer into a constructor (13)
 }
 
