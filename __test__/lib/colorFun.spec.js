@@ -35,7 +35,6 @@ describe('colorFun module', () => {
       let cleaned = new CleanBuffer(data);
 
       expect(cleaned.raster[0]).toBe(255);
-
       colorFun.invert(cleaned);
 
       expect(cleaned.raster[0]).toBe(0);
@@ -111,6 +110,25 @@ describe('colorFun module', () => {
       colorFun.lighten(cleaned);
 
       expect(cleaned.raster[400]).toBe(150);
+      done();
+
+    });
+  });
+
+  it('random method should randomize each pixels color(0 to 255)', (done) => {
+    
+    reader(`${root}/assets/bitmap.bmp`, (err, data) => {
+
+      expect(err).toBeNull();
+
+      let cleaned = new CleanBuffer(data);
+
+      expect(cleaned.colorTable[10]).toBe(69);
+
+      colorFun.random(cleaned);
+      
+      expect(cleaned.colorTable[10]).not.toBe(69);
+
       done();
 
     });
