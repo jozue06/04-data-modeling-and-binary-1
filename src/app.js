@@ -42,7 +42,6 @@ function app(oldPath, newPath, transformationString) {
         if (err) console.log('!!ERROR!!');
         else {
           console.log(transformationString +  ' finished to ' + newPath);
-          return 'hello';
         }
       });
 
