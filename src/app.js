@@ -5,6 +5,7 @@ const reader = require('./lib/reader');
 const CleanBuffer = require('./lib/bitmap');
 const changeColors = require('./lib/colorFun');
 const write = require('./lib/write');
+//const sizeChange = require('./lib/size');
 
 const root = __dirname;
 
@@ -25,8 +26,13 @@ function app(oldPath, newPath, transformationString) {
   case 'lighten':
     transformation = changeColors.lighten;
     break;
+
+  case 'random':
+    transformation = changeColors.random;
+    break;
+
   default:
-    console.log('please choose from invert, darken, lighten, or _____');
+    console.log('please choose from invert, darken, lighten, or random-color');
 
   }
   reader(`${root}/../assets/${oldPath}`, (err, data) => {
