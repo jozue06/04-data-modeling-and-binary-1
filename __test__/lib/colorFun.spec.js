@@ -115,4 +115,23 @@ describe('colorFun module', () => {
     });
   });
 
+  it('random method should randomize each pixels color(0 to 255)', (done) => {
+    
+    reader(`${root}/assets/bitmap.bmp`, (err, data) => {
+
+      expect(err).toBeNull();
+
+      let cleaned = new CleanBuffer(data);
+
+      expect(cleaned.colorTable[10]).toBe(69);
+
+      colorFun.random(cleaned);
+      
+      expect(cleaned.colorTable[10]).not.toBe(69);
+
+      done();
+
+    });
+  });
+
 });
