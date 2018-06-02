@@ -67,7 +67,7 @@ changeColors.lighten = function(buffer) {
   return(buffer);
 
 };
-//The random function looks at each [i] and and then subtracts the original [i] value from a randomly generated number that is multiplied by 255.  This creates an image with random pixel value.
+
 changeColors.random = function(buffer) {
 
   let raster = buffer.raster;
