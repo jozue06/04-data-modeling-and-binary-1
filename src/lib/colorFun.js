@@ -67,28 +67,28 @@ changeColors.lighten = function(buffer) {
   return(buffer);
 
 };
+//The random function looks at each [i] and and then subtracts the original [i] value from a randomly generated number that is multiplied by 255.  This creates an image with random pixel value.
+changeColors.random = function(buffer) {
 
-// changeColors.random = function(buffer) {
+  let raster = buffer.raster;
+  let colorTable = buffer.colorTable;
+  if (buffer.numColors !== 0) {
+    for (var i = 0; i < colorTable.length; i += 3) {
+      colorTable[i] = (Math.floor(Math.random() * 255));
+      colorTable[i + 1] = (Math.floor(Math.random() * 255));
+      colorTable[i + 2] = (Math.floor(Math.random() * 255));
+    }
+  } else {
 
-//   let raster = buffer.raster;
-//   let colorTable = buffer.colorTable;
-//   if (buffer.numColors !== 0) {
-//     for (var i = 0; i < colorTable.length; i += 3) {
-//       colorTable[i] = (Math.random() * 255) - colorTable[i];
-//       colorTable[i + 1] = (Math.random() * 255) - colorTable[i + 1];
-//       colorTable[i + 2] = (Math.random() * 255) - colorTable[i + 2];
-//     }
-//   } else {
+    for (var j = 0; j < raster.length; j += 3) {
+      raster[j] = (Math.floor(Math.random() * 255));
+      raster[j + 1] = (Math.floor(Math.random() * 255));
+      raster[j + 2] = (Math.floor(Math.random() * 255));
+    }
+  }
+  return(buffer);
 
-//     for (var j = 0; j < raster.length; j += 3) {
-//       raster[j] = (Math.random() * 255) - raster[j];
-//       raster[j + 1] = (Math.random() * 255) - raster[j + 1];
-//       raster[j + 2] = (Math.random() * 255) - raster[j + 2];
-//     }
-//   }
-//   return(buffer);
-
-// };
+};
 
 
 

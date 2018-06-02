@@ -28,7 +28,7 @@ function app(oldPath, newPath, transformationString) {
     break;
 
   case 'random':
-    transformation = changeColors.randomColor;
+    transformation = changeColors.random;
     break;
 
   default:
