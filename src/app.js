@@ -31,7 +31,7 @@ function app(oldPath, newPath, transformationString) {
   }
   reader(`${root}/../assets/${oldPath}`, (err, data) => {
     if (err) {
-      throw err;
+      console.log('!!ERROR!!');
     } else {
 
       let cleaned = new CleanBuffer(data);
@@ -39,15 +39,16 @@ function app(oldPath, newPath, transformationString) {
       var newBuffer = transformation(cleaned);
 
       write(`${root}/../assets/${newPath}`, newBuffer.buffer, (err) => {
-        if (err) throw err;
+        if (err) console.log('!!ERROR!!');
         else {
           console.log(transformationString +  ' finished to ' + newPath);
+          return 'hello';
         }
       });
 
     }
-
   });
+
 }
 
 module.exports = app;

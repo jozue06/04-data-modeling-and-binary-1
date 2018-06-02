@@ -35,7 +35,6 @@ describe('colorFun module', () => {
       let cleaned = new CleanBuffer(data);
 
       expect(cleaned.raster[0]).toBe(255);
-
       colorFun.invert(cleaned);
 
       expect(cleaned.raster[0]).toBe(0);

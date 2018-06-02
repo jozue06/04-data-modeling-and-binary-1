@@ -4,6 +4,7 @@ module.exports = function () {
       'src/**/*.js',
       '!__test__/**/*.spec.js',
       'assets/*.bmp',
+      'index.js',
     ],
 
     tests: [
