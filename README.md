@@ -1,4 +1,4 @@
-https://travis-ci.com/khuynh92/04-data-modeling-and-binary.svg?branch=master
+[![Build Status](https://travis-ci.com/khuynh92/04-data-modeling-and-binary.svg?branch=master)](https://travis-ci.com/khuynh92/04-data-modeling-and-binary)
 
 ## BITMAP TRANSFORMER LAB
 Khoa Huynh and Autumn Curtis
