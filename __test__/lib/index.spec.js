@@ -38,7 +38,5 @@ describe('index module', () => {
     }, 200);
   });
 
-  
-
 
 });
