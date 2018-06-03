@@ -6,7 +6,7 @@ const fs = require('fs');
 let root = __dirname;
 
 function getArgs(originalFile, newFile, transformationString) {
-  if (originalFile.split('.')[originalFile.split('.').length - 1] !== 'bmp' || newFile.split('.')[[newFile.split('.').length - 1]] !== 'bmp') {
+  if (originalFile.split('.')[originalFile.split('.').length - 1] !== 'bmp' || newFile.split('.')[newFile.split('.').length - 1] !== 'bmp') {
     console.log(originalFile.split('.')[originalFile.split('.').length - 1]);
     console.log('please use a file that ends in .bmp');
     return 'error';
